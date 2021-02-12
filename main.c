@@ -70,7 +70,7 @@ void QuickSort(char array[],int left,int right){
 int BinarySearch(char array[],char target){
     int left=0;
     int right= maxsize - 1;
-    QuickSort(array,left, right);
+    //QuickSort(array,left, right);
     while(left <= right){
         int mid = left + (right - left) / 2;
         if(array[mid] == target)
@@ -109,7 +109,7 @@ int main()
     for(low_size;low_size<maxsize;low_size++){
        scanf(" %c",&low[low_size]);
     }
-    printf("\n choose from this menu:\n 1-binary search in critical requests\n 2-binary search in high requests\n 3-binary search in medium requests\n 4-binary search in low requests\n 5-delete all requests in critical\n 6-delete all requests in high\n 7-delete all requests in medium\n 8-delete all requests in low\n 9-process all requests in critical\n 10-process all requests in high\n 11-process all requests in medium\n 12-process all requests in low\n 13-empty all arrays\n 0-exit from the program\n");
+    printf("\n choose from this menu:\n 1-binary search in critical requests\n 2-binary search in high requests\n 3-binary search in medium requests\n 4-binary search in low requests\n 5-delete all requests in critical\n 6-delete all requests in high\n 7-delete all requests in medium\n 8-delete all requests in low\n 9-process all requests in critical\n 10-process all requests in high\n 11-process all requests in medium\n 12-process all requests in low\n 13-empty all arrays\n 14-quick sort for critical\n 15-quick sort for high\n 16-quick sort for medium\n 17-quick sort for low\n 0-exit from the program\n");
 
    do{
         printf("enter another choice from the menu:");
@@ -206,7 +206,31 @@ int main()
     case 13:
         {
           empty(critical_size,high_size,medium_size,low_size);
-          printf("all arrays requests are deleted");
+          printf("\nall arrays requests are deleted");
+        }
+    break;
+    case 14:
+        {
+        QuickSort(critical,0,maxsize-1);
+        process(critical);
+        }
+    break;
+    case 15:
+        {
+         QuickSort(high,0,maxsize-1);
+         process(high);
+        }
+    break;
+    case 16:
+        {
+        QuickSort(medium,0,maxsize-1);
+        process(medium);
+        }
+    break;
+    case 17:
+        {
+        QuickSort(low,0,maxsize-1);
+        process(low);
         }
     break;
    }
